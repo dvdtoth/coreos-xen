@@ -1,0 +1,31 @@
+#cloud-config
+
+hostname: coreos
+
+coreos:
+  etcd2:
+    advertise-client-urls: "http://$public_ipv4:2379"
+    listen-client-urls: "http://0.0.0.0:2379"
+  units:
+    - name: etcd2.service
+      command: start
+    - name: fleet.service
+      command: start
+    - name: static.network
+      content: |
+        [Match]
+        Name=eth0
+
+        [Network]
+        Address=10.0.0.111/24
+        Gateway=10.0.0.254
+        DNS=8.8.8.8
+users:
+  - name: core
+    ssh-authorized-keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAAD..."
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAAB..."
+
+  - groups:
+      - sudo
+      - docker
