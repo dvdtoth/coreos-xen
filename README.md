@@ -1,10 +1,10 @@
-Running CoreOS on XEN VM
+Running CoreOS as XEN VM
 =====================================
 
 An example of setting up CoreOS with cloud-config on a XEN host
 
 
-#Preparing DHCP on the XEN host
+##Preparing DHCP on the XEN host
 
 DHCP is a convenient way of assigning static IP to the CoreOS vm by MAC address in DHCP and the XEN configuration.
 
@@ -35,7 +35,7 @@ Example /etc/default/isc-dhcp-server
 INTERFACES="dummy0"
 ```
 
-#Preparing the XEN VM config
+##Preparing the XEN VM config
 
 XEN config file:
 
@@ -77,7 +77,7 @@ usb = 1
 usbdevice='tablet'
 ```
 
-#Preparing CoreOS kernel
+##Preparing CoreOS kernel
 
 Grab the coreos iso and make the kernel available to the xen hypervisor.
 At the time of writing this, the stable is CoreOS 766.5.0. We will use CoreOS 835.5.0 from the beta channel, you must use a CoreOS version 773.1.0+ for the kubelet to be present in the image.
@@ -131,7 +131,7 @@ https://gist.githubusercontent.com/dvdtoth/16a8977b3e4575031c91/raw/c5d8b0e0b4ac
           - docker 
 ```
 
-#Start the new vm
+##Start the new vm
 
 ```
 xm create /etc/xen/coreos.cfg
@@ -139,6 +139,6 @@ xm create /etc/xen/coreos.cfg
 Connect via SSH or VNC to debug.
 
 
-#Refs
+##Refs
 
 How to make CoreOS pxe https://gist.github.com/nyarla/7319229
