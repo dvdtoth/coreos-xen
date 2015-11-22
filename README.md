@@ -1,4 +1,4 @@
-Running CoreOS as XEN VM
+Running CoreOS on XEN VM
 =====================================
 
 An example of setting up CoreOS with cloud-config on a XEN host
