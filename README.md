@@ -83,14 +83,14 @@ Grab the coreos iso and make the kernel available to the xen hypervisor.
 At the time of writing this, the stable is CoreOS 766.5.0. We will use CoreOS 835.5.0 from the beta channel, you must use a CoreOS version 773.1.0+ for the kubelet to be present in the image.
 
 ```
-wget http://beta.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso
+$ wget http://beta.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso
 ```
 
 Take the kernel from the image
 
 ```
-mkdir /mnt/coreos && mount -o loop coreos_production_iso_image.iso /mnt/coreos
-mkdir /coreos && cp /mnt/coreos/coreos/* /coreos
+$ mkdir /mnt/coreos && mount -o loop coreos_production_iso_image.iso /mnt/coreos
+$ mkdir /coreos && cp /mnt/coreos/coreos/* /coreos
 ```
 
 Create the cloud-config file, add any public keys you need to SSH access the vm with.
@@ -134,7 +134,7 @@ https://gist.githubusercontent.com/dvdtoth/16a8977b3e4575031c91/raw/c5d8b0e0b4ac
 ##Start the new vm
 
 ```
-xm create /etc/xen/coreos.cfg
+$ xm create /etc/xen/coreos.cfg
 ```
 Connect via SSH or VNC to debug.
 
