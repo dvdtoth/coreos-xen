@@ -140,5 +140,5 @@ Connect via SSH or VNC to debug.
 
 
 ##Refs
-
+Fork me on github: https://github.com/dvdtoth/coreos-xen/
 How to make CoreOS pxe https://gist.github.com/nyarla/7319229
